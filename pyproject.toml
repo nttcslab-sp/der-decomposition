@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "der-decomposition"
+version = "0.1.0"
+description = "Pause-attributable and core decomposition of diarization error rate"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "LicenseRef-Proprietary"
+license-files = ["LICENSE"]
+authors = [
+  {name = "Shota Horiguchi", email = "horiguchi@ieee.org"},
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "pyannote.metrics>=4.0,<5",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+der-decomposition = "der_decomposition.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/nttcslab-sp/der-decomposition"
+Repository = "https://github.com/nttcslab-sp/der-decomposition"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/der_decomposition"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
